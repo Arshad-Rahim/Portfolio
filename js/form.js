@@ -23,6 +23,10 @@ function SendMail(event) {
     return;
   }
 
+  if (!validateName(name)) {
+    alert('Please enter a valid Name.');
+    return;
+  }
   var templateParams = {
     name: name,
     email: email,
@@ -51,3 +55,7 @@ function validateEmail(email) {
 function validatePhone(phone) {
   return /^\d{10}$/.test(phone);
 }
+function validateName(name) {
+    const nameRegex = /^[A-Za-z\s]+$/; 
+    return nameRegex.test(name.trim());
+  }
